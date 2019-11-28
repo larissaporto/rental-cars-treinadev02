@@ -1,0 +1,7 @@
+<ul>
+ <% @fabricantes.each do |f| %>
+    <li>
+    <%= link_to f.name, manufacturer_path(f)%> 
+    </li>
+<% end %>
+ </ul>
