@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Visitor view subsidiaries' do
   scenario 'successfully' do
-    Subsidiary.create(name: 'Salvador', cnpj: '123456', 
+    Subsidiary.create!(name: 'Salvador', cnpj: '00.000.000/0000-00', 
                       address: 'Rua A')
     
 
@@ -11,7 +11,7 @@ feature 'Visitor view subsidiaries' do
     click_on 'Salvador'
     
     expect(page).to have_content('Salvador')
-    expect(page).to have_content('123456')
+    expect(page).to have_content('00.000.000/0000-00')
     expect(page).to have_content('Rua A')
     expect(page).to have_link('Voltar')
   end
