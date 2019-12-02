@@ -1,8 +1,9 @@
 <h1>Filiais</h1>
+<%= link_to 'Registrar nova Filial', new_subsidiary_path %>
 <ul>
-<% @filiais.each do |f| %>
+<% @subsidiaries.each do |subsidiary| %>
     <li>
-    <%= link_to f.name, subsidiary_path(f) %>
+    <%= link_to subsidiary.name, subsidiary_path(f) %>
     </li>
 <% end %>
 </ul>
