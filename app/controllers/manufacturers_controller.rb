@@ -11,8 +11,25 @@ class ManufacturersController < ApplicationController
     end
     def create
         @manufacturer = Manufacturer.new(manufacturer_params)
-        @manufacturer.save
-        redirect_to manufacturer_path(@manufacturer.id)
+        if @manufacturer.save
+           redirect_to manufacturer_path(@manufacturer.id)
+        else
+            flash.now[:alert] = 'Você deve preencher todos os campos'           
+            render :new
+        end
+    end
+    def edit
+        @manufacturer = Manufacturer.find(params[:id])
+    end
+    def update
+        @manufacturer = Manufacturer.find(params[:id])
+        if @manufacturer.update(manufacturer_params)
+           flash[:notice] = 'Fabricante atualizada com sucesso'
+           redirect_to @manufacturer
+        else
+            flash.now[:alert] = 'Você deve preencher todos os campos'
+            render :edit
+        end
     end
 
     private
