@@ -1,19 +1,18 @@
 require 'rails_helper'
 
-feature 'Admin register subsidiary' do
+feature 'Admin edits subsidiary' do
   scenario 'successfully' do
+    Subsidiary.create!(name: 'Amazonas', cnpj: '000.00.000/0000-00', address: 'Rua A')
+
     visit root_path
     click_on 'Filiais'
-    click_on 'Registrar nova Filial'
-
+    click_on 'Amazonas'
+    click_on 'Editar'
     fill_in 'Nome', with: 'Manaus'
-    fill_in 'CNPJ', with: '00.000.000/0000-00'   
-    fill_in 'Endereço', with: 'Rua C'   
     click_on 'Enviar'
 
     expect(page).to have_content('Manaus')
-    expect(page).to have_content('00.000.000/0000-00')
-    expect(page).to have_content('Rua C')
+    expect(page).to have_content('Filial atualizada com sucesso')
   end
 
   scenario 'and must fill all fields' do
@@ -42,5 +41,4 @@ feature 'Admin register subsidiary' do
 
     expect(page).to have_content('Você deve resolver o seguinte:')  
   end
-
 end

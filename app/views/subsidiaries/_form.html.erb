@@ -1,3 +1,12 @@
+<% if @subsidiary.errors.any? %>
+   <p> Você deve resolver o seguinte: </p> 
+   <ul>
+     <% @subsidiary.errors.full_messages.each do |message|%>
+     <li> <%= message %> </li>
+    <% end %>
+   </ul>
+<% end %>
+  
 <%= form_with model:@subsidiary, local:true do |f| %>
     <%= f.label :name, 'Nome' %>
     <%= f.text_field :name %>

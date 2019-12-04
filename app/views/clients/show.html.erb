@@ -1,3 +1,6 @@
 <h3> Cliente: <%= @client.name %> </h3>
 <h3> CPF: <%= @client.document %> </h3>
 <h3> Email: <%= @client.email %> </h3>
+
+<p><%= link_to 'Editar', edit_client_path(@client) %></p>
+<p><%= link_to 'Voltar', root_path %></p>

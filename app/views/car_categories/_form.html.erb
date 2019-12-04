@@ -1,3 +1,12 @@
+<% if @category.errors.any? %>
+   <p> Você deve resolver o seguinte: </p> 
+   <ul>
+     <% @category.errors.full_messages.each do |message|%>
+     <li> <%= message %> </li>
+    <% end %>
+   </ul>
+<% end %>
+
 <%= form_with model:@category, local:true do |f|%>
     <%= f.label :name, 'Categoria'%>
     <%= f.text_field :name %>
