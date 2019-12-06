@@ -9,11 +9,14 @@
 
 
  <%= form_with model: @client, local: true do |f|%>
-     <%= f.label :name, 'Nome'%>
-     <%= f.text_field :name %>
-     <%= f.label :document, 'CPF'%>
-     <%= f.text_field :document %>
-     <%= f.label :email %>
-     <%= f.text_field :email %>
+     <p><%= f.label :name, 'Nome'%>
+     <%= f.text_field :name %></p>
+
+     <p><%= f.label :document, 'CPF'%>
+     <%= f.text_field :document %></p>
+     
+     <p><%= f.label :email %>
+     <%= f.text_field :email %></p>
+     
      <%= f.submit 'Enviar' %>
  <% end %>

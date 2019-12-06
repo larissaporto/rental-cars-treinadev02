@@ -9,7 +9,8 @@
 
 
 <%= form_with model: @manufacturer, local: true do |f| %>
-    <%= f.label :name, 'Nome' %>
-    <%= f.text_field :name %>
+    <p><%= f.label :name, 'Nome' %>
+    <%= f.text_field :name %></p>
+
     <%= f.submit 'Enviar' %>
  <% end %>

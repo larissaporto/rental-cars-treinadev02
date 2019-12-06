@@ -5,4 +5,5 @@ class CarCategory < ApplicationRecord
     validates :name, :daily_rate, :car_insurance, 
               :third_party_insurance, uniqueness: {message: 'Nome já 
                                                    em uso'} 
+    has_many :car_models
 end

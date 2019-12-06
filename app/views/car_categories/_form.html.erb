@@ -8,13 +8,13 @@
 <% end %>
 
 <%= form_with model:@category, local:true do |f|%>
-    <%= f.label :name, 'Categoria'%>
-    <%= f.text_field :name %>
-    <%= f.label :daily_rate, 'Diária'%>
-    <%= f.text_field :daily_rate %>
-    <%= f.label :car_insurance, 'Seguro'%>
-    <%= f.text_field :car_insurance%>
-    <%= f.label :third_party_insurance, 'Seguro de Terceiros'%>
-    <%= f.text_field :third_party_insurance %>
-    <%= f.submit 'Enviar'%>
+    <p><%= f.label :name, 'Categoria'%>
+    <%= f.text_field :name %></p>
+    <p><%= f.label :daily_rate, 'Diária'%>
+    <%= f.text_field :daily_rate %></p>
+    <p><%= f.label :car_insurance, 'Seguro'%>
+    <%= f.text_field :car_insurance%></p>
+    <p><%= f.label :third_party_insurance, 'Seguro de Terceiros'%>
+    <%= f.text_field :third_party_insurance %></p>
+    <p><%= f.submit 'Enviar'%></p>
 <% end %>
