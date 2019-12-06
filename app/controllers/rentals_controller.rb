@@ -15,6 +15,8 @@ class RentalsController < ApplicationController
             flash[:notice] = 'Locação agendada com sucesso'
             redirect_to @rental
         else
+            @clients = Client.all 
+            @car_categories = CarCategory.all 
             render :new
         end
     end
