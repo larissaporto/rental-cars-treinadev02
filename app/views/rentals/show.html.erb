@@ -1,0 +1,12 @@
+<h1> Locação do(a) Cliente: <%= @rental.client.name %> <h1>
+
+<dl>
+  <dt>Início:</dt>
+  <dd><%= @rental.start_date%> </dd>
+  <dt>Fim:</dt>
+  <dd> <%= @rental.end_date %> </dd>
+  <dt> Categoria: </dt>
+  <dd> <%= @rental.car_category.name %> </dd>
+</dl>
+
+<%= link_to 'Voltar', :back %>

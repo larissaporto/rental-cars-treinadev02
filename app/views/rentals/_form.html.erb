@@ -1,0 +1,24 @@
+<%= form_with model: @rental, local: true do |f|%>
+    <p>
+    <%= f.label :start_date, 'Início'%>
+    <%= f.date_field :start_date%>
+    </p>
+    
+    <p>
+    <%= f.label :end_date, 'Fim'%>
+    <%= f.date_field :end_date%>
+    </p>
+    
+    <div>
+    <%= f.label :client_id, 'Cliente'%>
+    <%= f.collection_select(:client_id, @clients, :id, :name) %>
+    </div>
+
+    <div>
+    <%= f.label :car_category_id, 'Categoria'%>
+    <%= f.collection_select(:car_category_id, @car_categories, :id, :name) %>
+    </div>
+
+    <%= f.submit 'Enviar'%>
+
+<% end %>
