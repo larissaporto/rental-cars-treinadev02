@@ -11,7 +11,7 @@
     
     <div>
     <%= f.label :client_id, 'Cliente'%>
-    <%= f.collection_select(:client_id, @clients, :id, :name) %>
+    <%= f.collection_select(:client_id, @clients, :id, :description) %>
     </div>
 
     <div>

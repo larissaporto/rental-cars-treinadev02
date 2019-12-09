@@ -3,4 +3,8 @@ class Client < ApplicationRecord
                                                    preencher tudo'}
     validates :name, :document, :email, uniqueness: {message: 'Nome já
                                                      já em uso'}                                               
+    
+    def description
+        "#{name} - #{document}"
+    end
 end
