@@ -1,4 +1,6 @@
 class CarModelsController < ApplicationController
+    before_action :authenticate_user! 
+    before_action :authorize_admin
     def index 
         @car_models = CarModel.all
     end
@@ -20,5 +22,10 @@ class CarModelsController < ApplicationController
     def show
         @car_model = CarModel.find(params[:id])
 
+    end
+
+    private
+    def authorize_admin
+        redirect_to root_path unless current_user.admin?
     end
 end

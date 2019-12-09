@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'Admin edits subsidiary' do
   scenario 'successfully' do
+    user = User.create!(email: 'test@test.com', password: '123456', role: :admin)
+
+    login_as(user, scope: :user)
     CarCategory.create!(name: 'A', daily_rate: 10, car_insurance: 10, third_party_insurance: 10)
 
     visit root_path
@@ -16,6 +19,9 @@ feature 'Admin edits subsidiary' do
   end
 
   scenario 'and must fill all fields' do
+    user = User.create!(email: 'test@test.com', password: '123456', role: :admin)
+
+    login_as(user, scope: :user)
     CarCategory.create!(name: 'A', daily_rate: 10, car_insurance: 10, third_party_insurance: 10)
     
     visit root_path   
@@ -29,6 +35,9 @@ feature 'Admin edits subsidiary' do
   end
 
   scenario 'and must be unique' do
+    user = User.create!(email: 'test@test.com', password: '123456', role: :admin)
+
+    login_as(user, scope: :user)
     CarCategory.create!(name: 'A', daily_rate: 10, car_insurance: 10, third_party_insurance: 10)
     CarCategory.create!(name: 'B', daily_rate: 20, car_insurance: 20, third_party_insurance: 20)
 

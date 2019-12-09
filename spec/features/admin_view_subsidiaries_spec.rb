@@ -1,7 +1,10 @@
 require 'rails_helper'
 
-feature 'Visitor view subsidiaries' do
+feature 'Admin view subsidiaries' do
   scenario 'successfully' do
+    user = User.create!(email: 'test@test.com', password: '123456', role: :admin)
+
+    login_as(user, scope: :user)
     Subsidiary.create!(name: 'Salvador', cnpj: '00.000.000/0000-00', 
                       address: 'Rua A')
     
@@ -17,6 +20,9 @@ feature 'Visitor view subsidiaries' do
   end
 
   scenario 'and return to home page' do
+    user = User.create!(email: 'test@test.com', password: '123456', role: :admin)
+
+    login_as(user, scope: :user)
     Subsidiary.create(name: 'Salvador', cnpj: '123456', 
                       address: 'Rua A') 
 

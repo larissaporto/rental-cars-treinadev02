@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'Admin edits subsidiary' do
   scenario 'successfully' do
+    user = User.create!(email: 'test@test.com', password: '123456', role: :admin)
+
+    login_as(user, scope: :user)
     Subsidiary.create!(name: 'Amazonas', cnpj: '000.00.000/0000-00', address: 'Rua A')
 
     visit root_path
@@ -16,6 +19,9 @@ feature 'Admin edits subsidiary' do
   end
 
   scenario 'and must fill all fields' do
+    user = User.create!(email: 'test@test.com', password: '123456', role: :admin)
+
+    login_as(user, scope: :user)
     Subsidiary.create!(name: 'Amazonas', cnpj: '000.00.000/0000-00', address: 'Rua A')
     
     visit root_path   
@@ -29,6 +35,9 @@ feature 'Admin edits subsidiary' do
   end
 
   scenario 'and must be unique' do
+    user = User.create!(email: 'test@test.com', password: '123456', role: :admin)
+
+    login_as(user, scope: :user)
     Subsidiary.create!(name: 'Amazonas', cnpj: '000.00.000/0000-00', address: 'Rua A')
     Subsidiary.create!(name: 'Manaus', cnpj: '111.11.111/1111-11', address: 'Rua B')
 

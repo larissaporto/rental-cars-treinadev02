@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'Admin edits manufacturer' do
   scenario 'successfully' do
+    user = User.create!(email: 'test@test.com', password: '123456', role: :admin)
+
+    login_as(user, scope: :user)
     Manufacturer.create!(name: 'Fiat')
 
     visit root_path
@@ -16,6 +19,9 @@ feature 'Admin edits manufacturer' do
   end
 
   scenario 'and must fill all fields' do
+    user = User.create!(email: 'test@test.com', password: '123456', role: :admin)
+
+    login_as(user, scope: :user)
     Manufacturer.create!(name: 'Fiat')
     
     visit root_path   
@@ -29,6 +35,9 @@ feature 'Admin edits manufacturer' do
   end
 
   scenario 'and must be unique' do
+    user = User.create!(email: 'test@test.com', password: '123456', role: :admin)
+
+    login_as(user, scope: :user)
     Manufacturer.create!(name: 'Fiat')
     Manufacturer.create!(name: 'Honda')
 

@@ -1,6 +1,6 @@
 class CarCategoriesController < ApplicationController
-    
-#    http_basic_authenticate_with name: "admin", password: "secret"
+    before_action :authenticate_user! 
+    before_action :authorize_admin   
     
     def index
         @categorias = CarCategory.all
@@ -34,5 +34,7 @@ class CarCategoriesController < ApplicationController
                                              :car_insurance, 
                                              :third_party_insurance )
     end
-
+    def authorize_admin
+        redirect_to root_path unless current_user.admin?
+    end
 end

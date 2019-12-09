@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'User register rental' do
     scenario 'successfully' do
+        user = User.create!(email: 'test@test.com', password: '123456', role: :employee)
+
+        login_as(user, scope: :user)
         Client.create!(name: 'Ana', document: '000.000.000-00', 
                        email: 'aaaaaaaa@aaaaaa.com')
         Client.create!(name: 'Kim', document: '111.111.111-11', 
